@@ -33,7 +33,7 @@ struct StepsEntry: TimelineEntry {
 
 struct StepsProvider: TimelineProvider {
 
-    private static let refreshInterval: TimeInterval = 30 * 60
+    private static let refreshInterval: TimeInterval = 15 * 60
     private static let logger = Logger(
         subsystem: "es.roltek.StepOrbit",
         category: "StepsProvider"

@@ -52,7 +52,7 @@ private struct StepsSection: View {
         VStack(spacing: 12) {
             Image(systemName: "shoeprints.fill")
                 .font(.system(size: 28))
-                .foregroundStyle(.green)
+                .foregroundStyle(Color.accentColor)
 
             Text("steps.today")
                 .font(.caption)

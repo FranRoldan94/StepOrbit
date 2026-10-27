@@ -34,7 +34,7 @@ struct StepGoalSettingsView: View {
                 systemImage: "target"
             )
             .font(.headline)
-            .foregroundStyle(.green)
+            .foregroundStyle(Color.accentColor)
 
             Toggle(
                 "Activar objetivo",

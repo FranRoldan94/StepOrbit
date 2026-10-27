@@ -42,7 +42,7 @@ struct StepsComplicationView: View {
                         size: size * 0.16,
                         weight: .semibold
                     ))
-                    .foregroundStyle(.green)
+                    .foregroundStyle(Color.accentColor)
                     .offset(
                         y: entry.hasGoal ? -size * 0.38 : -size * 0.24
                     )
@@ -65,7 +65,7 @@ struct StepsComplicationView: View {
             Circle()
                 .trim(from: start, to: end)
                 .stroke((
-                    Color.green.opacity(0.25)
+                    Color.accentColor.opacity(0.25)
                 ), style: StrokeStyle(
                     lineWidth: size * 0.075,
                     lineCap: .round
@@ -77,7 +77,7 @@ struct StepsComplicationView: View {
                     to: start + arcLength * entry.progress
                 )
                 .stroke((
-                    Color.green
+                    Color.accentColor
                 ), style: StrokeStyle(
                     lineWidth: size * 0.075,
                     lineCap: .round
