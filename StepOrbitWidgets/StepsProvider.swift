@@ -10,6 +10,9 @@ import OSLog
 import WidgetKit
 
 struct StepsEntry: TimelineEntry {
+    /// Used to draw the ring when the user has not set a goal.
+    static let referenceGoal = 10_000
+
     let date: Date
     let steps: Int
     let goal: Int?
@@ -17,6 +20,18 @@ struct StepsEntry: TimelineEntry {
     var hasGoal: Bool {
         guard let goal else { return false }
         return goal > 0
+    }
+
+    var target: Int {
+        guard let goal, goal > 0 else {
+            return Self.referenceGoal
+        }
+
+        return goal
+    }
+
+    var isGoalReached: Bool {
+        hasGoal && steps >= target
     }
 
     var progress: Double {

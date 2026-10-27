@@ -21,30 +21,51 @@ struct StepOrbitWidgets: Widget {
             StepsComplicationView(entry: entry)
         }
         .configurationDisplayName("StepOrbit")
-        .description("Your daily steps and progress")
-        .supportedFamilies([.accessoryCircular])
+        .description(Text("widget.description"))
+        .supportedFamilies([
+            .accessoryCircular,
+            .accessoryRectangular,
+            .accessoryCorner,
+            .accessoryInline
+        ])
     }
 }
 
 
-#Preview(as: .accessoryCircular) {
+#Preview("Circular", as: .accessoryCircular) {
     StepOrbitWidgets()
 } timeline: {
-    StepsEntry(
-        date: .now,
-        steps: 8542,
-        goal: nil
-    )
+    StepsEntry.previewNoGoal
+    StepsEntry.previewInProgress
+    StepsEntry.previewGoalReached
+}
 
-    StepsEntry(
-        date: .now,
-        steps: 8542,
-        goal: 10000
-    )
+#Preview("Rectangular", as: .accessoryRectangular) {
+    StepOrbitWidgets()
+} timeline: {
+    StepsEntry.previewNoGoal
+    StepsEntry.previewInProgress
+    StepsEntry.previewGoalReached
+}
 
-    StepsEntry(
-        date: .now,
-        steps: 10000,
-        goal: 10000
-    )
+#Preview("Corner", as: .accessoryCorner) {
+    StepOrbitWidgets()
+} timeline: {
+    StepsEntry.previewNoGoal
+    StepsEntry.previewInProgress
+    StepsEntry.previewGoalReached
+}
+
+#Preview("Inline", as: .accessoryInline) {
+    StepOrbitWidgets()
+} timeline: {
+    StepsEntry.previewNoGoal
+    StepsEntry.previewInProgress
+    StepsEntry.previewGoalReached
+}
+
+private extension StepsEntry {
+    static let previewNoGoal = StepsEntry(date: .now, steps: 1_523, goal: nil)
+    static let previewInProgress = StepsEntry(date: .now, steps: 8_542, goal: 10_000)
+    static let previewGoalReached = StepsEntry(date: .now, steps: 12_730, goal: 10_000)
 }
