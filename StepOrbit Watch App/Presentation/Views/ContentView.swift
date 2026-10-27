@@ -103,9 +103,9 @@ private struct StepsSection: View {
                     .font(.caption2)
                     .foregroundStyle(.secondary)
                     .lineLimit(1)
-                    .minimumScaleFactor(0.7)
+                    .minimumScaleFactor(0.6)
             }
-            .padding(.horizontal, 20)
+            .padding(.horizontal, 12)
 
             Image(systemName: isGoalReached ? "checkmark" : "shoeprints.fill")
                 .font(.caption)
