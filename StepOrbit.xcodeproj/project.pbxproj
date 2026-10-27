@@ -7,10 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A11D95B2308FA499007FAA8E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11D95B1308FA499007FAA8E /* WidgetKit.framework */; };
+		A11D95B4308FA499007FAA8E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11D95B3308FA499007FAA8E /* SwiftUI.framework */; };
+		A11D95BF308FA49C007FAA8E /* StepOrbitWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A11D95AF308FA499007FAA8E /* StepOrbitWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A1DE3BEE308F704B00D3CBF1 /* StepOrbit Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A1DE3BED308F704B00D3CBF1 /* StepOrbit Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A11D95BD308FA49C007FAA8E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1DE3BE1308F704B00D3CBF1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A11D95AE308FA499007FAA8E;
+			remoteInfo = StepOrbitWidgetsExtension;
+		};
 		A1DE3BEF308F704B00D3CBF1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A1DE3BE1308F704B00D3CBF1 /* Project object */;
@@ -35,6 +45,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		A11D95C4308FA49C007FAA8E /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			dstPath = "";
+			dstSubfolder = PlugIns;
+			files = (
+				A11D95BF308FA49C007FAA8E /* StepOrbitWidgetsExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+		};
 		A1DE3C11308F704D00D3CBF1 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
@@ -47,13 +66,70 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A11D95AF308FA499007FAA8E /* StepOrbitWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StepOrbitWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A11D95B1308FA499007FAA8E /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		A11D95B3308FA499007FAA8E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A11D95CF308FA9DC007FAA8E /* StepOrbitWidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StepOrbitWidgetsExtension.entitlements; sourceTree = "<group>"; };
 		A1DE3BE7308F704B00D3CBF1 /* StepOrbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StepOrbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DE3BED308F704B00D3CBF1 /* StepOrbit Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "StepOrbit Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DE3BFC308F704D00D3CBF1 /* StepOrbit Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "StepOrbit Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DE3C06308F704D00D3CBF1 /* StepOrbit Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "StepOrbit Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A11D95C0308FA49C007FAA8E /* Exceptions for "StepOrbitWidgets" folder in "StepOrbitWidgetsExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = A11D95AE308FA499007FAA8E /* StepOrbitWidgetsExtension */;
+		};
+		A11D95CA308FA956007FAA8E /* Exceptions for "HealthKit" folder in "StepOrbit Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				HealthKitStepsRepository.swift,
+				StepsRepository.swift,
+			);
+			target = A1DE3BEC308F704B00D3CBF1 /* StepOrbit Watch App */;
+		};
+		A11D95CE308FA983007FAA8E /* Exceptions for "HealthKit" folder in "StepOrbitWidgetsExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				HealthKitStepsRepository.swift,
+				StepsRepository.swift,
+			);
+			target = A11D95AE308FA499007FAA8E /* StepOrbitWidgetsExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		A11D95B5308FA499007FAA8E /* StepOrbitWidgets */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A11D95C0308FA49C007FAA8E /* Exceptions for "StepOrbitWidgets" folder in "StepOrbitWidgetsExtension" target */,
+			);
+			path = StepOrbitWidgets;
+			sourceTree = "<group>";
+		};
+		A11D95C9308FA93C007FAA8E /* HealthKit */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A11D95CA308FA956007FAA8E /* Exceptions for "HealthKit" folder in "StepOrbit Watch App" target */,
+				A11D95CE308FA983007FAA8E /* Exceptions for "HealthKit" folder in "StepOrbitWidgetsExtension" target */,
+			);
+			path = HealthKit;
+			sourceTree = "<group>";
+		};
+		A11D95D5308FAD73007FAA8E /* Models */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A11D95D8308FAD77007FAA8E /* Settings */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		A1DE3BF1308F704B00D3CBF1 /* StepOrbit Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "StepOrbit Watch App";
@@ -72,6 +148,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A11D95AC308FA499007FAA8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+				A11D95B4308FA499007FAA8E /* SwiftUI.framework in Frameworks */,
+				A11D95B2308FA499007FAA8E /* WidgetKit.framework in Frameworks */,
+			);
+		};
 		A1DE3BEA308F704B00D3CBF1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
@@ -90,12 +173,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A11D95B0308FA499007FAA8E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A11D95B1308FA499007FAA8E /* WidgetKit.framework */,
+				A11D95B3308FA499007FAA8E /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A11D95C8308FA938007FAA8E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				A11D95D8308FAD77007FAA8E /* Settings */,
+				A11D95C9308FA93C007FAA8E /* HealthKit */,
+				A11D95D5308FAD73007FAA8E /* Models */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		A1DE3BE0308F704B00D3CBF1 = {
 			isa = PBXGroup;
 			children = (
+				A11D95CF308FA9DC007FAA8E /* StepOrbitWidgetsExtension.entitlements */,
+				A11D95C8308FA938007FAA8E /* Shared */,
 				A1DE3BF1308F704B00D3CBF1 /* StepOrbit Watch App */,
 				A1DE3BFF308F704D00D3CBF1 /* StepOrbit Watch AppTests */,
 				A1DE3C09308F704D00D3CBF1 /* StepOrbit Watch AppUITests */,
+				A11D95B5308FA499007FAA8E /* StepOrbitWidgets */,
+				A11D95B0308FA499007FAA8E /* Frameworks */,
 				A1DE3BE8308F704B00D3CBF1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -107,6 +213,7 @@
 				A1DE3BED308F704B00D3CBF1 /* StepOrbit Watch App.app */,
 				A1DE3BFC308F704D00D3CBF1 /* StepOrbit Watch AppTests.xctest */,
 				A1DE3C06308F704D00D3CBF1 /* StepOrbit Watch AppUITests.xctest */,
+				A11D95AF308FA499007FAA8E /* StepOrbitWidgetsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,6 +221,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A11D95AE308FA499007FAA8E /* StepOrbitWidgetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A11D95C1308FA49C007FAA8E /* Build configuration list for PBXNativeTarget "StepOrbitWidgetsExtension" */;
+			buildPhases = (
+				A11D95AB308FA499007FAA8E /* Sources */,
+				A11D95AC308FA499007FAA8E /* Frameworks */,
+				A11D95AD308FA499007FAA8E /* Resources */,
+			);
+			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				A11D95B5308FA499007FAA8E /* StepOrbitWidgets */,
+				A11D95D5308FAD73007FAA8E /* Models */,
+				A11D95D8308FAD77007FAA8E /* Settings */,
+			);
+			name = StepOrbitWidgetsExtension;
+			productName = StepOrbitWidgetsExtension;
+			productReference = A11D95AF308FA499007FAA8E /* StepOrbitWidgetsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		A1DE3BE6308F704B00D3CBF1 /* StepOrbit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1DE3C12308F704D00D3CBF1 /* Build configuration list for PBXNativeTarget "StepOrbit" */;
@@ -138,10 +265,16 @@
 				A1DE3BE9308F704B00D3CBF1 /* Sources */,
 				A1DE3BEA308F704B00D3CBF1 /* Frameworks */,
 				A1DE3BEB308F704B00D3CBF1 /* Resources */,
+				A11D95C4308FA49C007FAA8E /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
+			dependencies = (
+				A11D95BE308FA49C007FAA8E /* PBXTargetDependency */,
+			);
 			fileSystemSynchronizedGroups = (
+				A11D95D5308FAD73007FAA8E /* Models */,
+				A11D95D8308FAD77007FAA8E /* Settings */,
 				A1DE3BF1308F704B00D3CBF1 /* StepOrbit Watch App */,
 			);
 			name = "StepOrbit Watch App";
@@ -201,6 +334,9 @@
 				LastSwiftUpdateCheck = 2710;
 				LastUpgradeCheck = 2710;
 				TargetAttributes = {
+					A11D95AE308FA499007FAA8E = {
+						CreatedOnToolsVersion = 27.1;
+					};
 					A1DE3BE6308F704B00D3CBF1 = {
 						CreatedOnToolsVersion = 27.1;
 					};
@@ -223,6 +359,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = A1DE3BE0308F704B00D3CBF1;
 			minimizedProjectReferenceProxies = 1;
@@ -235,11 +372,17 @@
 				A1DE3BEC308F704B00D3CBF1 /* StepOrbit Watch App */,
 				A1DE3BFB308F704D00D3CBF1 /* StepOrbit Watch AppTests */,
 				A1DE3C05308F704D00D3CBF1 /* StepOrbit Watch AppUITests */,
+				A11D95AE308FA499007FAA8E /* StepOrbitWidgetsExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A11D95AD308FA499007FAA8E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
 		A1DE3BE5308F704B00D3CBF1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
@@ -263,6 +406,11 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A11D95AB308FA499007FAA8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
 		A1DE3BE9308F704B00D3CBF1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
@@ -281,6 +429,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A11D95BE308FA49C007FAA8E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A11D95AE308FA499007FAA8E /* StepOrbitWidgetsExtension */;
+			targetProxy = A11D95BD308FA49C007FAA8E /* PBXContainerItemProxy */;
+		};
 		A1DE3BF0308F704B00D3CBF1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A1DE3BEC308F704B00D3CBF1 /* StepOrbit Watch App */;
@@ -299,6 +452,79 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		A11D95C2308FA49C007FAA8E /* Debug configuration for PBXNativeTarget "StepOrbitWidgetsExtension" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = StepOrbitWidgetsExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T7D84VFUQM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StepOrbitWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = StepOrbitWidgets;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "StepOrbit needs access to your daily step count to display your activity on your Apple Watch.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = es.roltek.StepOrbit.watchkitapp.StepOrbitWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.6;
+			};
+			name = Debug;
+		};
+		A11D95C3308FA49C007FAA8E /* Release configuration for PBXNativeTarget "StepOrbitWidgetsExtension" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = StepOrbitWidgetsExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T7D84VFUQM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StepOrbitWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = StepOrbitWidgets;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "StepOrbit needs access to your daily step count to display your activity on your Apple Watch.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = es.roltek.StepOrbit.watchkitapp.StepOrbitWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.6;
+			};
+			name = Release;
+		};
 		A1DE3C0C308F704D00D3CBF1 /* Debug configuration for PBXProject "StepOrbit" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -357,6 +583,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -412,6 +639,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Release;
 		};
@@ -420,12 +648,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "StepOrbit Watch App/StepOrbit Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T7D84VFUQM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = StepOrbit;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "StepOrbit needs access to your daily step count to display your activity on your Apple Watch.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -435,6 +665,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = es.roltek.StepOrbit.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -442,9 +673,9 @@
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 27.0;
+				WATCHOS_DEPLOYMENT_TARGET = 11.6;
 			};
 			name = Debug;
 		};
@@ -453,12 +684,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "StepOrbit Watch App/StepOrbit Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T7D84VFUQM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = StepOrbit;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "StepOrbit needs access to your daily step count to display your activity on your Apple Watch.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -468,6 +701,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = es.roltek.StepOrbit.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -475,10 +709,10 @@
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 27.0;
+				WATCHOS_DEPLOYMENT_TARGET = 11.6;
 			};
 			name = Release;
 		};
@@ -496,7 +730,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -514,7 +748,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -535,10 +769,10 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StepOrbit Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StepOrbit Watch App";
-				WATCHOS_DEPLOYMENT_TARGET = 27.0;
+				WATCHOS_DEPLOYMENT_TARGET = 11.6;
 			};
 			name = Debug;
 		};
@@ -558,11 +792,11 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StepOrbit Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StepOrbit Watch App";
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 27.0;
+				WATCHOS_DEPLOYMENT_TARGET = 11.6;
 			};
 			name = Release;
 		};
@@ -581,10 +815,10 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_TARGET_NAME = "StepOrbit Watch App";
-				WATCHOS_DEPLOYMENT_TARGET = 27.0;
+				WATCHOS_DEPLOYMENT_TARGET = 11.6;
 			};
 			name = Debug;
 		};
@@ -603,17 +837,25 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_TARGET_NAME = "StepOrbit Watch App";
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 27.0;
+				WATCHOS_DEPLOYMENT_TARGET = 11.6;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A11D95C1308FA49C007FAA8E /* Build configuration list for PBXNativeTarget "StepOrbitWidgetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A11D95C2308FA49C007FAA8E /* Debug configuration for PBXNativeTarget "StepOrbitWidgetsExtension" */,
+				A11D95C3308FA49C007FAA8E /* Release configuration for PBXNativeTarget "StepOrbitWidgetsExtension" */,
+			);
+			defaultConfigurationName = Release;
+		};
 		A1DE3BE4308F704B00D3CBF1 /* Build configuration list for PBXProject "StepOrbit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
