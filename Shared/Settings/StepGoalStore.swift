@@ -79,6 +79,22 @@ struct StepsCache: Sendable {
         )
     }
 
+    /// Steps only grow during a day, so keep the highest count seen today.
+    /// The app and the complication both go through here, so neither can
+    /// show fewer steps than the other already displayed.
+    func merge(_ steps: DailySteps) -> DailySteps {
+        var merged = steps
+
+        if let cached = load(),
+           Calendar.current.isDate(cached.date, inSameDayAs: steps.date),
+           cached.count > steps.count {
+            merged = DailySteps(date: steps.date, count: cached.count)
+        }
+
+        save(merged)
+        return merged
+    }
+
     func save(_ steps: DailySteps) {
         guard let defaults else {
             return

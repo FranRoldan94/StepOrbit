@@ -97,8 +97,9 @@ struct StepsProvider: TimelineProvider {
             let steps: Int
 
             do {
-                let dailySteps = try await repository.fetchTodaySteps()
-                cache.save(dailySteps)
+                let dailySteps = cache.merge(
+                    try await repository.fetchTodaySteps()
+                )
                 steps = dailySteps.count
             } catch {
                 // HealthKit is inaccessible while the watch is locked:

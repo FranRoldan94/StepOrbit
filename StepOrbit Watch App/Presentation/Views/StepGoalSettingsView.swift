@@ -8,89 +8,60 @@
 
 
 import SwiftUI
-import WidgetKit
 
+/// Goal picker presented as a sheet. Changes are only applied when the
+/// user confirms, so the complication reloads once per edit.
 struct StepGoalSettingsView: View {
 
-    @State private var goal: Int?
-    @State private var draftGoal: Int
+    private static let noGoal = 0
+    private static let suggestedGoal = 10_000
+    private static let options = Array(stride(from: 500, through: 50_000, by: 500))
 
-    private let store = StepGoalStore()
+    let onSave: (Int?) -> Void
 
-    init() {
-        let savedGoal = StepGoalStore().getGoal()
+    @State private var selection: Int
 
-        _goal = State(initialValue: savedGoal)
-        _draftGoal = State(
-            initialValue: savedGoal ?? 10_000
+    @Environment(\.dismiss) private var dismiss
+
+    init(goal: Int?, onSave: @escaping (Int?) -> Void) {
+        self.onSave = onSave
+        _selection = State(
+            initialValue: goal ?? Self.suggestedGoal
         )
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        NavigationStack {
+            VStack(spacing: 4) {
+                Picker("goal.title", selection: $selection) {
+                    Text("goal.none")
+                        .tag(Self.noGoal)
 
-            Label(
-                "Objetivo diario",
-                systemImage: "target"
-            )
-            .font(.headline)
-            .foregroundStyle(Color.accentColor)
-
-            Toggle(
-                "Activar objetivo",
-                isOn: Binding(
-                    get: { goal != nil },
-                    set: { enabled in
-                        saveGoal(enabled ? draftGoal : nil)
+                    ForEach(Self.options, id: \.self) { option in
+                        Text(option, format: .number)
+                            .tag(option)
                     }
-                )
-            )
-
-            if goal != nil {
-                Stepper(
-                    value: $draftGoal,
-                    in: 500...50_000,
-                    step: 500
-                ) {
-                    Text(
-                        draftGoal,
-                        format: .number
-                    )
-                    .font(.headline)
                 }
-                .task(id: draftGoal) {
-                    // Debounce: save once the crown stops moving.
-                    guard draftGoal != goal else {
-                        return
+                .pickerStyle(.wheel)
+                .labelsHidden()
+
+                Text("goal.unit")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+            }
+            .navigationTitle("goal.shortTitle")
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("common.save", systemImage: "checkmark") {
+                        onSave(selection == Self.noGoal ? nil : selection)
+                        dismiss()
                     }
-
-                    try? await Task.sleep(for: .milliseconds(600))
-
-                    guard !Task.isCancelled else {
-                        return
-                    }
-
-                    saveGoal(draftGoal)
                 }
             }
         }
-        .padding(12)
-        .background(
-            .white.opacity(0.08),
-            in: RoundedRectangle(cornerRadius: 16)
-        )
     }
+}
 
-    private func saveGoal(_ newGoal: Int?) {
-        guard newGoal != goal else {
-            return
-        }
-
-        goal = newGoal
-        store.setGoal(newGoal)
-
-        WidgetCenter.shared.reloadTimelines(
-            ofKind: WidgetKind.steps
-        )
-    }
+#Preview {
+    StepGoalSettingsView(goal: 8_000) { _ in }
 }

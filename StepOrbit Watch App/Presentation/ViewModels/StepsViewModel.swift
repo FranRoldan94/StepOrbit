@@ -20,17 +20,24 @@ final class StepsViewModel {
         case failed
     }
 
+    /// Minimum time between complication reloads triggered by live updates.
+    private static let liveWidgetReloadInterval: TimeInterval = 60
+
     private let repository: any StepsRepository
     private let cache = StepsCache()
+    private let goalStore = StepGoalStore()
 
     private(set) var state: State = .idle
+    private(set) var goal: Int?
 
     @ObservationIgnored private var isAuthorized = false
     @ObservationIgnored private var liveUpdatesTask: Task<Void, Never>?
     @ObservationIgnored private var widgetStepCount: Int?
+    @ObservationIgnored private var lastWidgetReload: Date?
 
     init(repository: any StepsRepository) {
         self.repository = repository
+        self.goal = goalStore.getGoal()
 
         if let cachedSteps = cache.load() {
             state = .loaded(cachedSteps)
@@ -61,7 +68,7 @@ final class StepsViewModel {
         }
     }
 
-    /// Called when the app returns to the foreground.
+    /// Called when the app returns to the foreground or the user asks for it.
     func refresh() async {
         guard isAuthorized else {
             await load()
@@ -86,6 +93,16 @@ final class StepsViewModel {
         reloadWidgetIfNeeded()
     }
 
+    func updateGoal(_ newGoal: Int?) {
+        guard newGoal != goal else {
+            return
+        }
+
+        goal = newGoal
+        goalStore.setGoal(newGoal)
+        reloadWidget()
+    }
+
     // MARK: - Private
 
     private func startLiveUpdates() {
@@ -97,6 +114,7 @@ final class StepsViewModel {
             do {
                 for try await steps in repository.todayStepsUpdates() {
                     publish(steps)
+                    reloadWidgetIfNeeded(throttled: true)
                 }
             } catch {
                 // Keep showing the last known value.
@@ -131,18 +149,28 @@ final class StepsViewModel {
     }
 
     private func publish(_ steps: DailySteps) {
-        state = .loaded(steps)
-        cache.save(steps)
+        state = .loaded(cache.merge(steps))
     }
 
     /// Reloads the complication only when it is showing a different value.
-    private func reloadWidgetIfNeeded() {
+    private func reloadWidgetIfNeeded(throttled: Bool = false) {
         guard case .loaded(let steps) = state,
               steps.count != widgetStepCount else {
             return
         }
 
+        if throttled,
+           let lastWidgetReload,
+           Date().timeIntervalSince(lastWidgetReload) < Self.liveWidgetReloadInterval {
+            return
+        }
+
         widgetStepCount = steps.count
+        reloadWidget()
+    }
+
+    private func reloadWidget() {
+        lastWidgetReload = .now
         WidgetCenter.shared.reloadTimelines(ofKind: WidgetKind.steps)
     }
 }
