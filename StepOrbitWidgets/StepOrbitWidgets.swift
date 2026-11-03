@@ -20,7 +20,7 @@ struct StepOrbitWidgets: Widget {
         ) { entry in
             StepsComplicationView(entry: entry)
         }
-        .configurationDisplayName("StepOrbit")
+        .configurationDisplayName("widget.steps.title")
         .description(Text("widget.description"))
         .supportedFamilies([
             .accessoryCircular,
